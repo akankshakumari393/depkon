@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha1 "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/typed/akankshakumari393/v1alpha1"
+	v1alpha1 "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/typed/akankshakumari393.dev/v1alpha1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )

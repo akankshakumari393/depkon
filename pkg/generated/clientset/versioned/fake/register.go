@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	akankshakumari393v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393/v1alpha1"
+	akankshakumari393v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393.dev/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

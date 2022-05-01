@@ -21,7 +21,7 @@ package fake
 import (
 	"context"
 
-	v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393/v1alpha1"
+	v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393.dev/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -36,9 +36,9 @@ type FakeDepkons struct {
 	ns   string
 }
 
-var depkonsResource = schema.GroupVersionResource{Group: "akankshakumari393", Version: "v1alpha1", Resource: "depkons"}
+var depkonsResource = schema.GroupVersionResource{Group: "akankshakumari393.dev", Version: "v1alpha1", Resource: "depkons"}
 
-var depkonsKind = schema.GroupVersionKind{Group: "akankshakumari393", Version: "v1alpha1", Kind: "Depkon"}
+var depkonsKind = schema.GroupVersionKind{Group: "akankshakumari393.dev", Version: "v1alpha1", Kind: "Depkon"}
 
 // Get takes name of the depkon, and returns the corresponding depkon object, and an error if there is any.
 func (c *FakeDepkons) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.Depkon, err error) {

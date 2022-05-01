@@ -20,8 +20,8 @@ package fake
 
 import (
 	clientset "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned"
-	akankshakumari393v1alpha1 "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/typed/akankshakumari393/v1alpha1"
-	fakeakankshakumari393v1alpha1 "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/typed/akankshakumari393/v1alpha1/fake"
+	akankshakumari393v1alpha1 "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/typed/akankshakumari393.dev/v1alpha1"
+	fakeakankshakumari393v1alpha1 "github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/typed/akankshakumari393.dev/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

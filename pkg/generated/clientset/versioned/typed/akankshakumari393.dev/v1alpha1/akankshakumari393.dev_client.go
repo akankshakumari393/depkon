@@ -21,7 +21,7 @@ package v1alpha1
 import (
 	"net/http"
 
-	v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393/v1alpha1"
+	v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393.dev/v1alpha1"
 	"github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
@@ -31,7 +31,7 @@ type Akankshakumari393V1alpha1Interface interface {
 	DepkonsGetter
 }
 
-// Akankshakumari393V1alpha1Client is used to interact with features provided by the akankshakumari393 group.
+// Akankshakumari393V1alpha1Client is used to interact with features provided by the akankshakumari393.dev group.
 type Akankshakumari393V1alpha1Client struct {
 	restClient rest.Interface
 }

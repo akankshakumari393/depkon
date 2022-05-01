@@ -29,7 +29,7 @@ echo "$SCRIPT_ROOT,   $CODEGEN_PKG,    $OUTPUT_BASE"
 #                  instead of the $GOPATH directly. For normal projects this can be dropped.
 bash "${CODEGEN_PKG}"/generate-groups.sh "deepcopy,client,informer,lister" \
   github.com/akankshakumari393/depkon/pkg/generated github.com/akankshakumari393/depkon/pkg/apis \
-  akankshakumari393:v1alpha1 \
+  akankshakumari393.dev:v1alpha1 \
   --output-base "$(dirname "${BASH_SOURCE[0]}")/../../../.." \
   --go-header-file "${SCRIPT_ROOT}"/hack/boilerplate.go.txt
 
