@@ -19,8 +19,6 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"net/http"
-
 	v1alpha1 "github.com/akankshakumari393/depkon/pkg/apis/akankshakumari393/v1alpha1"
 	"github.com/akankshakumari393/depkon/pkg/generated/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
@@ -41,28 +39,12 @@ func (c *Akankshakumari393V1alpha1Client) Depkons(namespace string) DepkonInterf
 }
 
 // NewForConfig creates a new Akankshakumari393V1alpha1Client for the given config.
-// NewForConfig is equivalent to NewForConfigAndClient(c, httpClient),
-// where httpClient was generated with rest.HTTPClientFor(c).
 func NewForConfig(c *rest.Config) (*Akankshakumari393V1alpha1Client, error) {
 	config := *c
 	if err := setConfigDefaults(&config); err != nil {
 		return nil, err
 	}
-	httpClient, err := rest.HTTPClientFor(&config)
-	if err != nil {
-		return nil, err
-	}
-	return NewForConfigAndClient(&config, httpClient)
-}
-
-// NewForConfigAndClient creates a new Akankshakumari393V1alpha1Client for the given config and http client.
-// Note the http client provided takes precedence over the configured transport values.
-func NewForConfigAndClient(c *rest.Config, h *http.Client) (*Akankshakumari393V1alpha1Client, error) {
-	config := *c
-	if err := setConfigDefaults(&config); err != nil {
-		return nil, err
-	}
-	client, err := rest.RESTClientForConfigAndClient(&config, h)
+	client, err := rest.RESTClientFor(&config)
 	if err != nil {
 		return nil, err
 	}

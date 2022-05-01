@@ -105,7 +105,7 @@ func (c *FakeDepkons) Update(ctx context.Context, depkon *v1alpha1.Depkon, opts 
 // Delete takes name of the depkon and deletes it. Returns an error if one occurs.
 func (c *FakeDepkons) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteActionWithOptions(depkonsResource, c.ns, name, opts), &v1alpha1.Depkon{})
+		Invokes(testing.NewDeleteAction(depkonsResource, c.ns, name), &v1alpha1.Depkon{})
 
 	return err
 }
