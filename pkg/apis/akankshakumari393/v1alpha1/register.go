@@ -12,7 +12,7 @@ var SchemeGroupVersion = schema.GroupVersion{
 }
 
 var (
-	SchemeBuilder = runtime.SchemeBuilder
+	SchemeBuilder runtime.SchemeBuilder
 )
 
 func init() {
@@ -20,7 +20,7 @@ func init() {
 }
 
 func addKnownTypes(scheme *runtime.Scheme) error {
-	scheme.AddKnownTypes(SchemeGroupVersion, &Depkon{}, &DepkonList{})
+	// scheme.AddKnownTypes(SchemeGroupVersion, &Depkon{}, &DepkonList{})
 	metav1.AddToGroupVersion(scheme, SchemeGroupVersion)
 	return nil
 }
