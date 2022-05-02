@@ -47,7 +47,7 @@ func NewController(clientset kubernetes.Interface, klientset klientset.Interface
 	eveBroadcaster.StartRecordingToSink(&typedcorev1.EventSinkImpl{
 		Interface: clientset.CoreV1().Events(""),
 	})
-	recorder := eveBroadcaster.NewRecorder(scheme.Scheme, v1.EventSource{Component: "Kluster"})
+	recorder := eveBroadcaster.NewRecorder(scheme.Scheme, v1.EventSource{Component: "Depkon"})
 	controller := &controller{
 		clientset:    clientset,
 		klientset:    klientset,
