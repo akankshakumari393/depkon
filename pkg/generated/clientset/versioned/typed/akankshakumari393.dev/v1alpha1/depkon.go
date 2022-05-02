@@ -40,6 +40,7 @@ type DepkonsGetter interface {
 type DepkonInterface interface {
 	Create(ctx context.Context, depkon *v1alpha1.Depkon, opts v1.CreateOptions) (*v1alpha1.Depkon, error)
 	Update(ctx context.Context, depkon *v1alpha1.Depkon, opts v1.UpdateOptions) (*v1alpha1.Depkon, error)
+	UpdateStatus(ctx context.Context, depkon *v1alpha1.Depkon, opts v1.UpdateOptions) (*v1alpha1.Depkon, error)
 	Delete(ctx context.Context, name string, opts v1.DeleteOptions) error
 	DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error
 	Get(ctx context.Context, name string, opts v1.GetOptions) (*v1alpha1.Depkon, error)
@@ -128,6 +129,22 @@ func (c *depkons) Update(ctx context.Context, depkon *v1alpha1.Depkon, opts v1.U
 		Namespace(c.ns).
 		Resource("depkons").
 		Name(depkon.Name).
+		VersionedParams(&opts, scheme.ParameterCodec).
+		Body(depkon).
+		Do(ctx).
+		Into(result)
+	return
+}
+
+// UpdateStatus was generated because the type contains a Status member.
+// Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
+func (c *depkons) UpdateStatus(ctx context.Context, depkon *v1alpha1.Depkon, opts v1.UpdateOptions) (result *v1alpha1.Depkon, err error) {
+	result = &v1alpha1.Depkon{}
+	err = c.client.Put().
+		Namespace(c.ns).
+		Resource("depkons").
+		Name(depkon.Name).
+		SubResource("status").
 		VersionedParams(&opts, scheme.ParameterCodec).
 		Body(depkon).
 		Do(ctx).

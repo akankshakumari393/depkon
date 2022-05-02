@@ -20,6 +20,11 @@ func init() {
 	SchemeBuilder.Register(addKnownTypes)
 }
 
+// Resource takes an unqualified resource and returns a Group qualified GroupResource
+func Resource(resource string) schema.GroupResource {
+	return SchemeGroupVersion.WithResource(resource).GroupResource()
+}
+
 func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion, &Depkon{}, &DepkonList{})
 	metav1.AddToGroupVersion(scheme, SchemeGroupVersion)

@@ -1,0 +1,8 @@
+apiVersion: akankshakumari393.dev/v1alpha1
+kind: Depkon
+metadata:
+  name: depkon-1
+spec:
+  configmapRef: test-cm
+  deploymentRef: 
+  - test-nginx

@@ -6,25 +6,27 @@ import (
 
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+// +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="Progress",type=string,JSONPath=`.status.progress`
 type Depkon struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              DepkonSpec `json:"spec,omitempty"`
+	Spec              DepkonSpec   `json:"spec,omitempty"`
+	Status            DepkonStatus `json:"status,omitempty"`
 }
 
 type DepkonSpec struct {
-	Config []NamespaceConfig `json:"config,omitempty"`
-}
-
-type NamespaceConfig struct {
 	ConfigmapRef  string   `json:"configmapRef,omitempty"`
-	Namespace     string   `json:"namespace,omitempty"`
 	DeploymentRef []string `json:"deploymentRef,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 type DepkonList struct {
-	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Items             []Depkon `json:"items,omitempty"`
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []Depkon `json:"items,omitempty"`
+}
+
+type DepkonStatus struct {
+	Progress string `json:"progress,omitempty"`
 }

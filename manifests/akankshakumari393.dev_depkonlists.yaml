@@ -43,18 +43,11 @@ spec:
                   type: object
                 spec:
                   properties:
-                    config:
+                    configmapRef:
+                      type: string
+                    deploymentRef:
                       items:
-                        properties:
-                          configmapRef:
-                            type: string
-                          deploymentRef:
-                            items:
-                              type: string
-                            type: array
-                          namespace:
-                            type: string
-                        type: object
+                        type: string
                       type: array
                   type: object
               type: object
